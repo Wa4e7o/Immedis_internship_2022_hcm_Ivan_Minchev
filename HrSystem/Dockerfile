@@ -10,16 +10,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
-COPY ["ManagmentSystem/ManagmentSystem.csproj", "ManagmentSystem/"]
-RUN dotnet restore "ManagmentSystem/ManagmentSystem.csproj"
+COPY ["HrSystem/HrSystem.csproj", "HrSystem/"]
+RUN dotnet restore "HrSystem/HrSystem.csproj"
 COPY . .
-WORKDIR "/src/ManagmentSystem"
-RUN dotnet build "ManagmentSystem.csproj" -c Release -o /app/build
+WORKDIR "/src/HrSystem"
+RUN dotnet build "HrSystem.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "ManagmentSystem.csproj" -c Release -o /app/publish
+RUN dotnet publish "HrSystem.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "ManagmentSystem.dll"]
+ENTRYPOINT ["dotnet", "HrSystem.dll"]
