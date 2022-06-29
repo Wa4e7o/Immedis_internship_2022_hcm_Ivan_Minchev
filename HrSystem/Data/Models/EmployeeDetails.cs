@@ -49,6 +49,10 @@ namespace ManagmentSystem.Data.Models
 
         public DateTime StartDate { get; set; }
 
+        public int EmployeePositionId { get; set; }
+
+        public EmployeePosition EmployeePosition { get; set; }
+
         public List<SkillsAssessment> SkillsAssessments { get; set; }
 
         public List<PreviousExperience> PreviousExperiences { get; set; }

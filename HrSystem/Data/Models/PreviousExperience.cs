@@ -20,5 +20,9 @@
         [MaxLength(RecomendationLetterLength)]
         [Display(Name = "Feedback from previous company")]
         public string RecomendationLetter { get; set; }
+
+        public int EmployeeDetailsId { get; set; }
+
+        public EmployeeDetails EmployeeDetails { get; set; }
     }
 }

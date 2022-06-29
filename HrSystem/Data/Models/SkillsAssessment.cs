@@ -23,5 +23,9 @@ namespace ManagmentSystem.Data.Models
         [Required(ErrorMessage = "Must write a few words as feedback !")]
         [MaxLength(FeedBackMaxLength)]
         public string FeedBack { get; set; }
+
+        public int EmployeeDetailsId { get; set; }
+
+        public EmployeeDetails EmployeeDetails { get; set; }
     }
 }
