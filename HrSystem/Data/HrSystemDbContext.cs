@@ -6,8 +6,8 @@
 
     public class HrSystemDbContext : IdentityDbContext<ApplicationUser>
     {
-        public HrSystemDbContext(DbContextOptions<HrSystemDbContext> options)
-    : base(options)
+        public HrSystemDbContext(DbContextOptions options) 
+            : base(options)
         {
 
         }
@@ -18,7 +18,7 @@
 
         public DbSet<PreviousExperience> PreviousExperiences { get; set; }
 
-        public DbSet<SkillsAssessment> skillsAssessments { get; set; }
+        public DbSet<SkillsAssessment> SkillsAssessments { get; set; }
 
 
 
