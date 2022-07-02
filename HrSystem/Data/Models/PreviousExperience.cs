@@ -1,10 +1,11 @@
 ﻿namespace ManagmentSystem.Data.Models
 {
+    using HrSystem.Data.Base;
     using System.ComponentModel.DataAnnotations;
 
     using static DataConstants.PreviousExperience;
 
-    public class PreviousExperience
+    public class PreviousExperience : IEntityBase
     {
         [Key]
         public int Id { get; set; }
@@ -21,8 +22,8 @@
         [Display(Name = "Feedback from previous company")]
         public string RecomendationLetter { get; set; }
 
-        public int EmployeeDetailsId { get; set; }
+        public int EmployeеId { get; set; }
 
-        public EmployeeDetails EmployeeDetails { get; set; }
+        public Employee Employee { get; set; }
     }
 }

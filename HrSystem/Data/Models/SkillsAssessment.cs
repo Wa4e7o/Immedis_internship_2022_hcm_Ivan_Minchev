@@ -1,11 +1,12 @@
 ﻿
 namespace ManagmentSystem.Data.Models
 {
+    using HrSystem.Data.Base;
     using System.ComponentModel.DataAnnotations;
 
     using static DataConstants.SkillsAssessment;
 
-    public class SkillsAssessment
+    public class SkillsAssessment : IEntityBase
     {
         [Key]
         public int Id { get; set; }
@@ -24,8 +25,8 @@ namespace ManagmentSystem.Data.Models
         [MaxLength(FeedBackMaxLength)]
         public string FeedBack { get; set; }
 
-        public int EmployeeDetailsId { get; set; }
+        public int EmployeeId { get; set; }
 
-        public EmployeeDetails EmployeeDetails { get; set; }
+        public Employee Employee { get; set; }
     }
 }

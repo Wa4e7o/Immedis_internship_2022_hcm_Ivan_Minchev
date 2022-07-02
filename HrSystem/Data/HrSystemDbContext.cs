@@ -12,9 +12,9 @@
 
         }
 
-        public DbSet<EmployeeDetails> EmployeeDetails { get; set; }
+        public DbSet<Employee> Employee { get; set; }
 
-        public DbSet<EmployeePosition> EmployeePositions { get; set; }
+        public DbSet<Position> Positions { get; set; }
 
         public DbSet<PreviousExperience> PreviousExperiences { get; set; }
 
@@ -25,26 +25,26 @@
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder
-               .Entity<EmployeeDetails>()
-               .HasOne(e => e.EmployeePosition)
+               .Entity<Employee>()
+               .HasOne(e => e.Position)
                .WithMany(s => s.EmployeeRecords)
-               .HasForeignKey(s => s.EmployeePositionId)
+               .HasForeignKey(s => s.PositionId)
                .OnDelete(DeleteBehavior.Restrict);
 
 
             builder
                .Entity<SkillsAssessment>()
-               .HasOne(e => e.EmployeeDetails)
+               .HasOne(e => e.Employee)
                .WithMany(s => s.SkillsAssessments)
-               .HasForeignKey(s => s.EmployeeDetailsId)
+               .HasForeignKey(s => s.EmployeeId)
                .OnDelete(DeleteBehavior.Restrict);
 
 
             builder
                 .Entity<PreviousExperience>()
-               .HasOne(e => e.EmployeeDetails)
+               .HasOne(e => e.Employee)
                .WithMany(s => s.PreviousExperiences)
-               .HasForeignKey(s => s.EmployeeDetailsId)
+               .HasForeignKey(s => s.EmployeеId)
                .OnDelete(DeleteBehavior.Restrict);
 
             base.OnModelCreating(builder);

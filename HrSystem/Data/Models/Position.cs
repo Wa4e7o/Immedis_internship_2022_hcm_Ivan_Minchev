@@ -1,12 +1,13 @@
 ﻿
 namespace ManagmentSystem.Data.Models
 {
+    using HrSystem.Data.Base;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     using static DataConstants.EmployeePosition;
 
-    public class EmployeePosition
+    public class Position : IEntityBase
     {
         [Key]
         public int Id { get; set; }
@@ -24,6 +25,6 @@ namespace ManagmentSystem.Data.Models
         [Required]
         public double Salary { get; set; }
 
-        public List<EmployeeDetails> EmployeeRecords { get; set; }
+        public List<Employee> EmployeeRecords { get; set; }
     }
 }

@@ -1,13 +1,14 @@
 ﻿
 namespace ManagmentSystem.Data.Models
 {
+    using HrSystem.Data.Base;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     using static DataConstants.EmployeeDetails;
 
-    public class EmployeeDetails
+    public class Employee : IEntityBase
     {
         [Key]
         public int Id { get; set; }
@@ -49,9 +50,9 @@ namespace ManagmentSystem.Data.Models
 
         public DateTime StartDate { get; set; }
 
-        public int EmployeePositionId { get; set; }
+        public int PositionId { get; set; }
 
-        public EmployeePosition EmployeePosition { get; set; }
+        public Position Position { get; set; }
 
         public List<SkillsAssessment> SkillsAssessments { get; set; }
 
