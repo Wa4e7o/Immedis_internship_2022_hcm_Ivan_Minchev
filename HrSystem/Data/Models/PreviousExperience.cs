@@ -1,6 +1,8 @@
 ﻿namespace ManagmentSystem.Data.Models
 {
     using HrSystem.Data.Base;
+    using HrSystem.Data.Models;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
     using static DataConstants.PreviousExperience;
@@ -22,8 +24,6 @@
         [Display(Name = "Feedback from previous company")]
         public string RecomendationLetter { get; set; }
 
-        public int EmployeеId { get; set; }
-
-        public Employee Employee { get; set; }
+        public List<EmployeePreviousExperienceConnection> EmployeePreviousExperiences { get; set; }
     }
 }

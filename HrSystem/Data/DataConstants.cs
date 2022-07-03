@@ -2,24 +2,19 @@
 {
     public class DataConstants
     {
-        public class EmployeeDetails
+        public class Employee
         {
             public const int NameMaxLength = 40;
             public const int MedicalStautsMaxLength = 250;
             public const int PhoneNumberMaxLength = 15;
             public const int AddressMaxLength = 55;
+            public const int SkillsAssessmantLength = 500;
         }
 
         public class EmployeePosition
         {
             public const int PositionMaxLength = 50;
             public const int DepartmentMaxLength = 35;
-        }
-
-        public class SkillsAssessment
-        {
-            public const int AuthorNameMaxLength = 70;
-            public const int FeedBackMaxLength = 250;
         }
 
         public class PreviousExperience

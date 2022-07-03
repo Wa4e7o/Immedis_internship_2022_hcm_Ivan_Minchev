@@ -1,12 +1,12 @@
-﻿
-namespace ManagmentSystem.Data.Models
+﻿namespace ManagmentSystem.Data.Models
 {
     using HrSystem.Data.Base;
+    using HrSystem.Data.Models;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    using static DataConstants.EmployeeDetails;
+    using static DataConstants.Employee;
 
     public class Employee : IEntityBase
     {
@@ -16,7 +16,7 @@ namespace ManagmentSystem.Data.Models
         [Required(ErrorMessage = "First name is required !")]
         [MaxLength(NameMaxLength)]
         [Display(Name = "First Name")]
-        public string Name { get; set; }
+        public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Last Name is required !")]
         [MaxLength(NameMaxLength)]
@@ -50,13 +50,14 @@ namespace ManagmentSystem.Data.Models
 
         public DateTime StartDate { get; set; }
 
+        [MaxLength(SkillsAssessmantLength)]
+        [Display(Name = "Еmployee notes")]
+        public string SkillsAssessment { get; set; }
+
         public int PositionId { get; set; }
 
         public Position Position { get; set; }
 
-        public List<SkillsAssessment> SkillsAssessments { get; set; }
-
-        public List<PreviousExperience> PreviousExperiences { get; set; }
-
+        public List<EmployeePreviousExperienceConnection> EmployeePreviousExperiences {get; set;}
     }
 }

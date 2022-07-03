@@ -2,6 +2,8 @@ namespace HrSystem
 {
     using HrSystem.Data;
     using HrSystem.Services.Employees;
+    using HrSystem.Services.Positions;
+    using HrSystem.Services.PreviousExperiences;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.EntityFrameworkCore;
@@ -26,6 +28,8 @@ namespace HrSystem
                     Configuration.GetConnectionString("DefaultConnectionString")));
 
             services.AddScoped<IEmployeesService, EmployeesService>();
+            services.AddScoped<IPositionsService, PositionsService>();
+            services.AddScoped<IPreviousExperiencesService, PreviousExperiencesService>();
 
             services.AddControllersWithViews();
         }
