@@ -2,7 +2,7 @@
 {
     using HrSystem.Data;
     using HrSystem.Models.Base;
-    using ManagmentSystem.Data.Models;
+    using HrSystem.Data.Models;
 
     public class PreviousExperiencesService : EntityBaseRepository<PreviousExperience>, IPreviousExperiencesService
     {

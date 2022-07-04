@@ -1,5 +1,5 @@
 ﻿using HrSystem.Models.Base;
-using ManagmentSystem.Data.Models;
+using HrSystem.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

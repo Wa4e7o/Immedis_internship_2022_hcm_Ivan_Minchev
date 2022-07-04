@@ -60,6 +60,8 @@ namespace HrSystem
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            HrSystemDbInitializer.Seed(app);
         }
     }
 }

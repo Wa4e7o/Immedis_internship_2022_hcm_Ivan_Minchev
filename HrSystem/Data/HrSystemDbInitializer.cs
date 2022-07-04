@@ -1,13 +1,12 @@
-﻿using ManagmentSystem.Data.Models;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace HrSystem.Data
+﻿namespace HrSystem.Data
 {
+    using HrSystem.Data.Models;
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.Extensions.DependencyInjection;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class HrSystemDbInitializer
     {
         public static void Seed(IApplicationBuilder applicationBuilder)
@@ -84,7 +83,7 @@ namespace HrSystem.Data
                             Email = "catchmeifucan@gmail.com",
                             MedicalStauts = "No problems",
                             PhoneNumber = "0895716213",
-                            PositionId = 1,
+                            PositionId = 5,
                             StartDate = DateTime.Now.AddDays(-20)
                         },
                     });
@@ -98,34 +97,105 @@ namespace HrSystem.Data
                     {
                         new Position()
                         {
-                            PositionName = "Vendor consultant",
-                            DepartmentName = "Sales",
+                            PositionName = "Sales representative",
+                            DepartmentName = "Sales Department",
                             Salary = 1000
                         },
                         new Position()
                         {
                           PositionName = "Аccountant",
-                          DepartmentName = "Budget and salaries",
-                          Salary = 2000
+                          DepartmentName = "Budget and salaries Department",
+                          Salary = 2500
                         },
                         new Position()
                         {
-                          PositionName = "Technical support",
-                          DepartmentName = "Supports",
-                          Salary = 1500
+                          PositionName = "Customer support",
+                          DepartmentName = "TaxBack",
+                          Salary = 1700
                         },
-                        new Producer()
+                         new Position()
                         {
-                            Name = "David Heyman",
-                            Biography = "David Heyman was born on July 26, 1961 in London, England. He is a producer and actor, known for Gravity (2013), Marriage Story (2019) and Once Upon a Time... In Hollywood (2019).",
-                            ImageURL = "https://m.media-amazon.com/images/M/MV5BMTYwNzE2MDgxM15BMl5BanBnXkFtZTcwMTIwMDY4NQ@@._V1_UY317_CR104,0,214,317_AL_.jpg"
+                          PositionName = "Cleaner",
+                          DepartmentName = "Upkeeping Department",
+                          Salary = 700
                         },
-                        new Producer()
+                          new Position()
                         {
-                            Name = "Neal H. Moritz",
-                            Biography = "Neal H. Moritz is an American film and television producer who was born on June 6, 1959. After graduating from college at Westwood, he earned a master's degree in 1985, which led to a startup of his own production company Neal Moritz Productions. He had a production deal with Paramount Pictures.",
-                            ImageURL = "https://m.media-amazon.com/images/M/MV5BODY1MDY0NDk5Nl5BMl5BanBnXkFtZTgwNTg4ODMwNzE@._V1_UX214_CR0,0,214,317_AL_.jpg"
-                        }
+                          PositionName = "Manager",
+                          DepartmentName = "Technicle Department",
+                          Salary = 4500,
+                        },
+                    });
+
+                    context.SaveChanges();
+                }
+
+                if (!context.PreviousExperiences.Any())
+                {
+                    context.PreviousExperiences.AddRange(new List<PreviousExperience>()
+                    {
+                        new PreviousExperience()
+                        {
+                             Employeer = "Metro Cash and Cary",
+                             PositionName = "Manager",
+                             RecomendationLetter = "Very good employee, knows how to lead the team well. Conscientiously completes assigned tasks on time."
+                        },
+                        new PreviousExperience()
+                        {
+                             Employeer = "Coca Cola",
+                             PositionName = "Аccountant",
+                             RecomendationLetter = "He is very good with accounts and knows how to save the company money."
+                        },
+                        new PreviousExperience()
+                        {
+                             Employeer = "Lidl",
+                             PositionName = "Vendor consultant",
+                        },
+                        new PreviousExperience()
+                        {
+                             Employeer = "Municipality Gabrovo",
+                             PositionName = "Cleaner",
+                        },
+                       new PreviousExperience()
+                        {
+                             Employeer = "Uber",
+                             PositionName = "Customer support",
+                             RecomendationLetter = "A very positive and smiling person. Completes assigned tasks on time. Able to maintain confidentiality."
+                        },
+                    });
+
+                    context.SaveChanges();
+                }
+
+                if (!context.EmployeePreviousExperienceConnections.Any())
+                {
+                    context.EmployeePreviousExperienceConnections.AddRange(new List<EmployeePreviousExperienceConnection>()
+                    {
+                        new EmployeePreviousExperienceConnection()
+                        {
+                         EmployeeId = 1,
+                         PreviousExperienceId = 3
+                        },
+                       new EmployeePreviousExperienceConnection()
+                        {
+                         EmployeeId = 2,
+                         PreviousExperienceId = 5
+                        },
+                       new EmployeePreviousExperienceConnection()
+                        {
+                         EmployeeId = 3,
+                         PreviousExperienceId = 2
+                        },
+                        new EmployeePreviousExperienceConnection()
+                        {
+                         EmployeeId = 4,
+                         PreviousExperienceId = 4
+                        },
+                        new EmployeePreviousExperienceConnection()
+                        {
+                         EmployeeId = 5,
+                         PreviousExperienceId = 1
+                        },
                     });
 
                     context.SaveChanges();

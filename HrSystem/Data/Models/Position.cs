@@ -1,5 +1,4 @@
-﻿
-namespace ManagmentSystem.Data.Models
+﻿namespace HrSystem.Data.Models
 {
     using HrSystem.Data.Base;
     using System.Collections.Generic;

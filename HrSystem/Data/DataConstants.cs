@@ -1,4 +1,4 @@
-﻿namespace ManagmentSystem.Data
+﻿namespace HrSystem.Data
 {
     public class DataConstants
     {
@@ -21,7 +21,7 @@
         {
             public const int PositionNameLength = 45; 
             public const int EmployeerLength = 30;
-            public const int RecomendationLetterLength = 70;
+            public const int RecomendationLetterLength = 350;
         }
     }
 }
