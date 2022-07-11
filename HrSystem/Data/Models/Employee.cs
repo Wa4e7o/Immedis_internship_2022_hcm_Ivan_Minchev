@@ -5,7 +5,7 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-
+    using System.ComponentModel.DataAnnotations.Schema;
     using static DataConstants.Employee;
 
     public class Employee : IEntityBase
@@ -54,10 +54,14 @@
         [Display(Name = "Еmployee notes")]
         public string SkillsAssessment { get; set; }
 
-        public int PositionId { get; set; }
+        public int? PositionId { get; set; }
 
+        [ForeignKey("PositionId")]
         public Position Position { get; set; }
 
-        public List<EmployeePreviousExperienceConnection> EmployeePreviousExperiences {get; set;}
+        public int? PreviousExperienceId { get; set; }
+
+        [ForeignKey("PreviousExperienceId")]
+        public PreviousExperience PreviousExperience { get; set; }
     }
 }

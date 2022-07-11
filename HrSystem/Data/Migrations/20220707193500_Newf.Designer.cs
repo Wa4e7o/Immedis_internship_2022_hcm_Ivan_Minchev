@@ -4,14 +4,16 @@ using HrSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HrSystem.Data.Migrations
 {
     [DbContext(typeof(HrSystemDbContext))]
-    partial class HrSystemDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220707193500_Newf")]
+    partial class Newf
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,9 +67,6 @@ namespace HrSystem.Data.Migrations
                     b.Property<int?>("PositionId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("PreviousExperienceId")
-                        .HasColumnType("int");
-
                     b.Property<string>("SkillsAssessment")
                         .HasColumnType("nvarchar(500)")
                         .HasMaxLength(500);
@@ -79,9 +78,20 @@ namespace HrSystem.Data.Migrations
 
                     b.HasIndex("PositionId");
 
-                    b.HasIndex("PreviousExperienceId");
-
                     b.ToTable("Employees");
+                });
+
+            modelBuilder.Entity("HrSystem.Data.Models.EmployeePreviousExperienceConnection", b =>
+                {
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PreviousExperienceId")
+                        .HasColumnType("int");
+
+                    b.HasKey("EmployeeId", "PreviousExperienceId");
+
+                    b.ToTable("EmployeePreviousExperienceConnections");
                 });
 
             modelBuilder.Entity("HrSystem.Data.Models.Position", b =>
@@ -336,13 +346,22 @@ namespace HrSystem.Data.Migrations
                 {
                     b.HasOne("HrSystem.Data.Models.Position", "Position")
                         .WithMany("EmployeeRecords")
-                        .HasForeignKey("PositionId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("PositionId");
+                });
+
+            modelBuilder.Entity("HrSystem.Data.Models.EmployeePreviousExperienceConnection", b =>
+                {
+                    b.HasOne("HrSystem.Data.Models.Employee", "Employee")
+                        .WithMany("EmployeePreviousExperiences")
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("HrSystem.Data.Models.PreviousExperience", "PreviousExperience")
-                        .WithMany("EmployeePreviousExperience")
-                        .HasForeignKey("PreviousExperienceId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .WithMany("EmployeePreviousExperiences")
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

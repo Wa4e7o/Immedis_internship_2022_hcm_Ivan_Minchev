@@ -24,6 +24,6 @@
         [Display(Name = "Feedback from previous company")]
         public string RecomendationLetter { get; set; }
 
-        public List<EmployeePreviousExperienceConnection> EmployeePreviousExperiences { get; set; }
+        public List<Employee> EmployeePreviousExperience { get; set; }
     }
 }

@@ -2,8 +2,8 @@
 {
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
-    using ManagmentSystem.Data.Models;
     using HrSystem.Data.Models;
+    using ManagmentSystem.Data.Models;
 
     public class HrSystemDbContext : IdentityDbContext<ApplicationUser>
     {
@@ -19,40 +19,26 @@
 
         public DbSet<PreviousExperience> PreviousExperiences { get; set; }
 
-        public DbSet<EmployeePreviousExperienceConnection> EmployeePreviousExperienceConnections { get; set; }
+
 
 
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder
-               .Entity<Position>()
-               .HasMany (e => e.EmployeeRecords)
-               .WithOne(s => s.Position)
-               .HasForeignKey(s => s.PositionId)
-               .OnDelete(DeleteBehavior.Restrict);
 
             builder
-        .Entity<EmployeePreviousExperienceConnection>()
-        .HasKey(e => new
-        {
-            e.EmployeeId,
-            e.PreviousExperienceId
-        });
-
-            builder
-               .Entity<EmployeePreviousExperienceConnection>()
-               .HasOne(e => e.Employee)
-               .WithMany(c => c.EmployeePreviousExperiences)
-               .HasForeignKey(e => e.EmployeeId)
+               .Entity<Employee>()
+               .HasOne(e => e.Position)
+               .WithMany(c => c.EmployeeRecords)
+               .HasForeignKey(e => e.PositionId)
                .OnDelete(DeleteBehavior.Restrict);
 
 
             builder
-               .Entity<EmployeePreviousExperienceConnection>()
-               .HasOne(p => p.PreviousExperience)
-               .WithMany(c => c.EmployeePreviousExperiences)
-               .HasForeignKey(p => p.EmployeeId)
+               .Entity<PreviousExperience>()
+               .HasMany(p => p.EmployeePreviousExperience)
+               .WithOne(c => c.PreviousExperience)
+               .HasForeignKey(p => p.PreviousExperienceId)
                .OnDelete(DeleteBehavior.Restrict);
 
             base.OnModelCreating(builder);

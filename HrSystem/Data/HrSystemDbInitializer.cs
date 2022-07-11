@@ -17,80 +17,6 @@
 
                 context.Database.EnsureCreated();
 
-                if (!context.Employees.Any())
-                {
-                    context.Employees.AddRange(new List<Employee>()
-                    {
-                        new Employee()
-                        {
-                            FirstName = "Boris ",
-                            LastName = "Becker",
-                            Age = 32,
-                            ImageURL = "https://ichef.bbci.co.uk/news/976/cpsprodpb/77B6/production/_124364603_169-gettyimages-1240321438.jpg",
-                            Address = "Malko Tyrnovo, str.Rayna Knyaginya 2",
-                            Email = "boris_tennis@gmail.com",
-                            MedicalStauts = "Healty",
-                            PhoneNumber = "0895667791",
-                            PositionId = 1,
-                            StartDate = DateTime.Now.AddDays(-10)
-                        },
-                        new Employee()
-                        {
-                            FirstName = "Krasi",
-                            LastName = "Radkov",
-                            Age = 27,
-                            ImageURL = "hhttps://nstatic.nova.bg/public/pics/nova/production_people/img_1646059001.jpg",
-                            Address = "Plovdiv, str.Vladimir Visotski 9",
-                            Email = "slavi_shou@gmail.com",
-                            MedicalStauts = "Back pain, can't lift heavy",
-                            PhoneNumber = "0897668893",
-                            PositionId = 3,
-                            StartDate = DateTime.Now.AddDays(-60)
-                        },
-                        new Employee()
-                        {
-                            FirstName = "Lili",
-                            LastName = "Ivanova",
-                            Age = 19,
-                            ImageURL = "https://epicenter.bg/images/news/12021/pics/1611560229.jpg",
-                            Address = "Dryanovo, str.Bacho Kiro 19",
-                            Email = "neustoima_diva@gmail.com",
-                            MedicalStauts = "Аrrhythmia",
-                            PhoneNumber = "0898773543",
-                            PositionId = 2,
-                            StartDate = DateTime.Now.AddDays(-20)
-                        },
-                        new Employee()
-                        {
-                            FirstName = "Tedy",
-                            LastName = "Georgo",
-                            Age = 41,
-                            ImageURL = "https://img.novini.bg/uploads/news_pictures/2017-51/big/dj-tedi-djordjo-prebiha-me-policai-485488.png",
-                            Address = "Sofia, str.Lorenco Lamas 49",
-                            Email = "car_lyv@gmail.com",
-                            MedicalStauts = "Problem with eyes",
-                            PhoneNumber = "0893753263",
-                            PositionId = 4,
-                            StartDate = DateTime.Now.AddDays(-20)
-                        },
-                         new Employee()
-                        {
-                            FirstName = "Ivet",
-                            LastName = "Lalova",
-                            Age = 37,
-                            ImageURL = "https://www.atletikabg.com/wp-content/uploads/223476886_371079854363237_8262917684309448832_n-448x336.jpg",
-                            Address = "Varna, str.Morska sreshta 73",
-                            Email = "catchmeifucan@gmail.com",
-                            MedicalStauts = "No problems",
-                            PhoneNumber = "0895716213",
-                            PositionId = 5,
-                            StartDate = DateTime.Now.AddDays(-20)
-                        },
-                    });
-
-                    context.SaveChanges();
-                }
-
                 if (!context.Positions.Any())
                 {
                     context.Positions.AddRange(new List<Position>()
@@ -167,34 +93,80 @@
                     context.SaveChanges();
                 }
 
-                if (!context.EmployeePreviousExperienceConnections.Any())
+                if (!context.Employees.Any())
                 {
-                    context.EmployeePreviousExperienceConnections.AddRange(new List<EmployeePreviousExperienceConnection>()
+                    context.Employees.AddRange(new List<Employee>()
                     {
-                        new EmployeePreviousExperienceConnection()
+                        new Employee()
                         {
-                         EmployeeId = 1,
-                         PreviousExperienceId = 3
+                            FirstName = "Boris ",
+                            LastName = "Becker",
+                            Age = 32,
+                            ImageURL = "https://ichef.bbci.co.uk/news/976/cpsprodpb/77B6/production/_124364603_169-gettyimages-1240321438.jpg",
+                            Address = "Malko Tyrnovo, str.Rayna Knyaginya 2",
+                            Email = "boris_tennis@gmail.com",
+                            MedicalStauts = "Healty",
+                            PhoneNumber = "0895667791",
+                            PositionId = 1,
+                            PreviousExperienceId = 2,
+                            StartDate = DateTime.Now.AddDays(-10)
                         },
-                       new EmployeePreviousExperienceConnection()
+                        new Employee()
                         {
-                         EmployeeId = 2,
-                         PreviousExperienceId = 5
+                            FirstName = "Krasi",
+                            LastName = "Radkov",
+                            Age = 27,
+                            ImageURL = "https://nstatic.nova.bg/public/pics/nova/production_people/img_1646059001.jpg",
+                            Address = "Plovdiv, str.Vladimir Visotski 9",
+                            Email = "slavi_shou@gmail.com",
+                            MedicalStauts = "Back pain, can't lift heavy",
+                            PhoneNumber = "0897668893",
+                            PositionId = 2,
+                            PreviousExperienceId = 3,
+                            StartDate = DateTime.Now.AddDays(-60)
                         },
-                       new EmployeePreviousExperienceConnection()
+                        new Employee()
                         {
-                         EmployeeId = 3,
-                         PreviousExperienceId = 2
+                            FirstName = "Lili",
+                            LastName = "Ivanova",
+                            Age = 19,
+                            ImageURL = "https://epicenter.bg/images/news/12021/pics/1611560229.jpg",
+                            Address = "Dryanovo, str.Bacho Kiro 19",
+                            Email = "neustoima_diva@gmail.com",
+                            MedicalStauts = "Аrrhythmia",
+                            PhoneNumber = "0898773543",
+                            PositionId = 3,
+                            PreviousExperienceId = 2,
+                            StartDate = DateTime.Now.AddDays(-20)
+                             
                         },
-                        new EmployeePreviousExperienceConnection()
+                        new Employee()
                         {
-                         EmployeeId = 4,
-                         PreviousExperienceId = 4
+                            FirstName = "Tedy",
+                            LastName = "Georgo",
+                            Age = 41,
+                            ImageURL = "https://img.novini.bg/uploads/news_pictures/2017-51/big/dj-tedi-djordjo-prebiha-me-policai-485488.png",
+                            Address = "Sofia, str.Lorenco Lamas 49",
+                            Email = "car_lyv@gmail.com",
+                            MedicalStauts = "Problem with eyes",
+                            PhoneNumber = "0893753263",
+                            PositionId = 4,
+                            PreviousExperienceId = 3,
+                            StartDate = DateTime.Now.AddDays(-20)
                         },
-                        new EmployeePreviousExperienceConnection()
+                         new Employee()
                         {
-                         EmployeeId = 5,
-                         PreviousExperienceId = 1
+                            FirstName = "Ivet",
+                            LastName = "Lalova",
+                            Age = 37,
+                            ImageURL = "https://www.atletikabg.com/wp-content/uploads/223476886_371079854363237_8262917684309448832_n-448x336.jpg",
+                            Address = "Varna, str.Morska sreshta 73",
+                            Email = "catchmeifucan@gmail.com",
+                            MedicalStauts = "No problems",
+                            PhoneNumber = "0895716213",
+                            PositionId = 4,
+                            PreviousExperienceId = 4,
+                            StartDate = DateTime.Now.AddDays(-20)
                         },
                     });
 
